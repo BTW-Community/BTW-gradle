@@ -4,7 +4,7 @@ BTW-gradle is a development environment for the Better Than Wolves mod
 
 ## Quick Start
 
-* Download the [toolkit]()
+* Download a release
 * Change settings.gradle
 * Run gradlew build
 
