@@ -10,6 +10,8 @@ BTW-gradle is a development environment for the Better Than Wolves mod
 
 ## BTW Source Code
 
-To get access to the Better Than Wolves source code, do this (mention how to select BTW or CE version)
+To get access to the Better Than Wolves source code, build your project and look in `build/minecraft`
 
 ## Addon Development
+
+TODO
