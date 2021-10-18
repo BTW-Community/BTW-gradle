@@ -1,0 +1,80 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "btw.community.gradle",
+    "module": "btw-gradle-plugin",
+    "version": "0.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "btw-gradle-plugin-0.1.0.jar",
+          "url": "btw-gradle-plugin-0.1.0.jar",
+          "size": 314792,
+          "sha512": "ec504a2127e688996db274e9b07c2be71671076965c7514c08ec989995402c116865096188a3e05aaa7dc38a50ce47aef3ffc1ceae2bb35de3b1d37e8a8798cd",
+          "sha256": "84e76715a72149b60755c723ef6384cb71fe9ad804c899b208dae593d67e25d3",
+          "sha1": "44ec77508299d53e6a22ec3c0d1d4b816b38d646",
+          "md5": "83e8e71a88d02ec92e0398ff49808c8e"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.cloudbees",
+          "module": "diff4j",
+          "version": {
+            "requires": "1.3"
+          }
+        },
+        {
+          "group": "io.sigpipe",
+          "module": "jbsdiff",
+          "version": {
+            "requires": "1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "btw-gradle-plugin-0.1.0.jar",
+          "url": "btw-gradle-plugin-0.1.0.jar",
+          "size": 314792,
+          "sha512": "ec504a2127e688996db274e9b07c2be71671076965c7514c08ec989995402c116865096188a3e05aaa7dc38a50ce47aef3ffc1ceae2bb35de3b1d37e8a8798cd",
+          "sha256": "84e76715a72149b60755c723ef6384cb71fe9ad804c899b208dae593d67e25d3",
+          "sha1": "44ec77508299d53e6a22ec3c0d1d4b816b38d646",
+          "md5": "83e8e71a88d02ec92e0398ff49808c8e"
+        }
+      ]
+    }
+  ]
+}
