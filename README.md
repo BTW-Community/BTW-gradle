@@ -14,9 +14,11 @@ To get access to the Better Than Wolves source code, build your project and look
 
 ## Addon Development
 
-BTW-gradle was developed in IntelliJ IDEA and it's also the environment I recommend. After [downloading and unpacking the example](https://github.com/BTW-Community/BTW-gradle/archive/refs/heads/example.zip), just point IDEA at the top folder (the one that has build.gradle) and it should pick up Gradle by itself. Next, you want to look at `settings.gradle` and configure it to your liking. You can also override these settings in `build.gradle`.
+BTW-gradle was developed in IntelliJ IDEA and it's also the environment I recommend. After [downloading and unpacking the example](https://github.com/BTW-Community/BTW-gradle/archive/refs/heads/example.zip), just point IDEA at the top folder (the one that has build.gradle) and it should pick up Gradle by itself. The process in Eclipse is almost exactly the same. Go to File -> Import... -> Gradle -> Existing Gradle project and select the top folder. Make sure your workspace is not the same folder.
 
-Next, you want to open the Gradle panel on the right and find the `build` task in Tasks -> btw-gradle and run it. This will take about 5 minutes, after which the example should be compiled and ready to run.
+Next, you want to look at `settings.gradle` and configure it to your liking. You can also override these settings in `build.gradle` (where the Cthulhu references are in the `btw {}` block.
+
+Next, you want to open the Gradle panel on and find the `build` task in the `btw-gradle` section and run it. This will take about 5-10 minutes, after which the example should be compiled and ready to run (it only takes this long the first time and every time you clean the build directory, as it needs to decompile and patch the Minecraft source code).
 
 If you look at the `build/distributions` folder, you will notice the zip file that you can use to share your mod with the world. It will be named according to what you have set up previously.
 
