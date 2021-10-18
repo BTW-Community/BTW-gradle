@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://BTW-Community.github.io/BTW-gradle'
+        }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = name
+
+gradle.rootProject {
+    group = group
+    version = version
+    description = description
+}

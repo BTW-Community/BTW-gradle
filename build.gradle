@@ -1,0 +1,15 @@
+plugins {
+    id 'btw-gradle' version '0.1.0'
+}
+
+btw {
+    // You can override your mod settings here or use this instead of gradle.properties
+    modInfo {
+        name = "Cthulhu's Addon"
+        description = "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn"
+        credits = "All credit to Cthulhu"
+    }
+
+    // Location of the MCP directory
+    // mcpDir = layout.projectDirectory.dir("mcp")
+}
