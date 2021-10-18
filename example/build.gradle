@@ -1,0 +1,22 @@
+plugins {
+    id 'btw-gradle'
+}
+
+btw {
+    // You can override your mod settings here or use this instead of gradle.properties
+    modInfo {
+        name = "Cthulhu's Addon"
+        description = "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn"
+        credits = "All credit to Cthulhu"
+    }
+
+    // Location of the MCP directory
+    // mcpDir = layout.projectDirectory.dir("mcp")
+}
+
+
+def languageVersion = javaToolchains
+        .compilerFor(java.toolchain).get()
+        .metadata.languageVersion
+
+println "Example is using JDK $languageVersion"
