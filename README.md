@@ -2,6 +2,8 @@
 
 BTW-gradle is a development environment for the Better Than Wolves mod
 
+## ⚠️ DO NOT CLONE THIS REPOSITORY, READ THE README AND DOWNLOAD THE CORRECT ZIP ⚠️
+
 ## Quick Start
 
 * Download [the example](https://github.com/BTW-Community/BTW-gradle/archive/refs/heads/example.zip)
