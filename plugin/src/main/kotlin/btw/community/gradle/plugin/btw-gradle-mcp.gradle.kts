@@ -16,7 +16,7 @@ repositories {
 }
 
 val mcpArchive: Configuration by configurations.creating
-val btwPatches: Configuration by configurations.creating
+val btwSource: Configuration by configurations.creating
 
 dependencies {
     mcpArchive("de.oceanlabs.mcp:mcp:751@zip")
@@ -24,7 +24,7 @@ dependencies {
     val btwVersion = config.modInfo.get().btwversion
 
     if (btwVersion.isNotEmpty()) {
-        btwPatches("btw.community:btw:$btwVersion@zip")
+        btwSource("btw.community:btw:$btwVersion@zip")
     }
 }
 
@@ -113,7 +113,7 @@ tasks {
             path = "^.+patches\\/(.+)$".toRegex().find(path)?.groups?.get(1)?.value ?: path
         }
 
-        from(btwPatches.map { zipTree(it) })
+        from(btwSource.map { zipTree(it) })
         into(layout.buildDirectory.dir("patches"))
 
         include("**/patches/**")
@@ -122,8 +122,23 @@ tasks {
         includeEmptyDirs = false
     }
 
+    val prepareResources by registering(Copy::class) {
+        dependsOn(named("processMinecraftResources"))
+
+        eachFile {
+            path = "^.+resources\\/(.+)$".toRegex().find(path)?.groups?.get(1)?.value ?: path
+        }
+
+        from(btwSource.map { zipTree(it) })
+        into(layout.buildDirectory.dir("minecraft/resources"))
+
+        include("**/resources/**")
+
+        includeEmptyDirs = false
+    }
+
     val decompile by registering(Exec::class) {
-        dependsOn(prepareMCP, preparePatches)
+        dependsOn(prepareMCP, preparePatches, prepareResources)
 
         onlyIf {
             layout.buildDirectory.dir("minecraft/minecraft").get().asFileTree.isEmpty
@@ -238,7 +253,7 @@ tasks {
 
             copy {
                 from(layout.buildDirectory.dir("minecraft/temp"))
-                into(layout.buildDirectory.dir("minecraft"))
+                into(layout.buildDirectory.dir("minecraft/minecraft"))
             }
 
             delete(layout.buildDirectory.dir("minecraft/temp"))
