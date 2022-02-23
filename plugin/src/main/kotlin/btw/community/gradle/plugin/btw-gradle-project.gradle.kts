@@ -100,6 +100,7 @@ application {
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_1_8.majorVersion))
+        vendor.set(JvmVendorSpec.ADOPTOPENJDK)
     }
 
     config.jdkHome.set(
