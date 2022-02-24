@@ -1,4 +1,6 @@
-package net.minecraft.src;
+package btw.community;
+
+import net.minecraft.src.FCAddOn;
 
 public class ExampleAddon extends FCAddOn {
     public static ExampleAddon instance = new ExampleAddon();
@@ -9,6 +11,5 @@ public class ExampleAddon extends FCAddOn {
 
     @Override
     public void Initialize() {
-
     }
 }
