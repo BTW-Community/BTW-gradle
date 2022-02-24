@@ -253,7 +253,7 @@ tasks {
 
             copy {
                 from(layout.buildDirectory.dir("minecraft/temp"))
-                into(layout.buildDirectory.dir("minecraft/minecraft"))
+                into(layout.buildDirectory.dir("minecraft"))
             }
 
             delete(layout.buildDirectory.dir("minecraft/temp"))
