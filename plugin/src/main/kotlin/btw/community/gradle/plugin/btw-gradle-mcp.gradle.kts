@@ -203,6 +203,7 @@ tasks {
         outputs.dir(layout.buildDirectory.dir("mcp/bin"))
 
         workingDir(config.mcpDir.get().asFile)
+
         commandLine(
             command("recompile").apply {
                 if (!config.serverEnabled.get()) {
@@ -261,12 +262,13 @@ tasks {
     }
 
     val reobfuscate by registering(Exec::class) {
-        dependsOn(recompile)
+        dependsOn(decompile)
 
         inputs.dir(layout.projectDirectory.dir("src/client"))
         inputs.dir(layout.projectDirectory.dir("src/server"))
 
         outputs.dir(layout.buildDirectory.dir("reobf"))
+        outputs.dir(layout.buildDirectory.dir("mcp/bin"))
 
         workingDir(config.mcpDir.get().asFile)
 
@@ -277,6 +279,54 @@ tasks {
                 }
             }
         )
+
+        doFirst {
+            sync {
+                from(layout.buildDirectory.dir("minecraft/minecraft")) {
+                    into("minecraft")
+                }
+                from(layout.buildDirectory.dir("minecraft/minecraft_server")) {
+                    into("minecraft_server")
+                }
+                into(layout.buildDirectory.dir("minecraft/temp"))
+
+                exclude("**/resources/**")
+            }
+
+            exec {
+                workingDir(config.mcpDir.get().asFile)
+                commandLine(
+                    command("updatemd5").apply {
+                        if (!config.serverEnabled.get()) {
+                            add("--client")
+                        }
+                        add("--force")
+                    }
+                )
+            }
+
+            copy {
+                from(layout.projectDirectory.dir("src/client/java"))
+                into(layout.buildDirectory.dir("minecraft/minecraft"))
+            }
+
+            copy {
+                from(layout.projectDirectory.dir("src/server/java"))
+                into(layout.buildDirectory.dir("minecraft/minecraft_server"))
+            }
+        }
+
+        doLast {
+            delete(layout.buildDirectory.dir("minecraft/minecraft"))
+            delete(layout.buildDirectory.dir("minecraft/minecraft_server"))
+
+            copy {
+                from(layout.buildDirectory.dir("minecraft/temp"))
+                into(layout.buildDirectory.dir("minecraft"))
+            }
+
+            delete(layout.buildDirectory.dir("minecraft/temp"))
+        }
     }
 
     val reobfClientZip by registering(Zip::class) {
