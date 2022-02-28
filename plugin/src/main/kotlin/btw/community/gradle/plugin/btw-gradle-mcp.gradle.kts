@@ -263,7 +263,7 @@ tasks {
     val reobfuscate by registering(Exec::class) {
         dependsOn(recompile)
 
-        inputs.dir(layout.buildDirectory.dir("classes"))
+        inputs.dir(layout.buildDirectory.dir("mcp/bin"))
         outputs.dir(layout.buildDirectory.dir("reobf"))
 
         workingDir(config.mcpDir.get().asFile)
