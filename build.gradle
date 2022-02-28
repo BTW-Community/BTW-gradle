@@ -1,5 +1,5 @@
 plugins {
-    id 'btw-gradle' version '1.0.0'
+    id 'btw-gradle' version '1.0.1'
 }
 
 btw {
