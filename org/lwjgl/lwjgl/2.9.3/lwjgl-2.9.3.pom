@@ -4,7 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.lwjgl</groupId>
   <artifactId>lwjgl</artifactId>
-  <version>2.9.3-mac-m1</version>
+  <version>2.9.3</version>
+  <packaging>pom</packaging>
   <name>LWJGL 2</name>
   <url>https://www.lwjgl.org</url>
 </project>
